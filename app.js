@@ -2,7 +2,7 @@ var express = require('express');
 var jade=require('jade');
 var mongoose=require('mongoose');
 var _=require('underscore')
-var tcm=require('./models/tcm');
+var Tcm=require('./models/tcm');
 
 //静态资源请求路径
 var path = require('path');
@@ -39,7 +39,7 @@ var emptytcm = {
 //路由
 //index page
 app.get('/', function (req, res) {
-  tcm.fetch(function (err, tcms) {
+  Tcm.fetch(function (err, tcms) {
     if (err) {
       console.log(err);
     }
@@ -49,7 +49,7 @@ app.get('/', function (req, res) {
 
   //list页面
   app.get('/list',function(req,res){
-    tcm.fetch(function(err,tcms){
+    Tcm.fetch(function(err,tcms){
       if(err){
         console.log(err);
       }
@@ -61,7 +61,7 @@ app.get('/', function (req, res) {
   app.get('/detail/:id',function(req,res){
     var id=req.params.id;
 
-    tcm.findById(id,function(req,tcm){
+    Tcm.findById(id,function(req,tcm){
       res.render('detail',{title:'中医养生-详情',tcm:tcm});
     })
 });
@@ -76,13 +76,13 @@ app.get('/admin/new', function (req,res) {
 });
 
 //逻辑控制：插入
-  app.post('/admin/control/new',function(req,res){
+  app.post('/admin/control/new',function(req,res) {
     var tcmObj=req.body.tcm;
     var id=tcmObj._id;
     var _tcm;
-    if(id !='undefined'){
-      tcm.FindById(id,function(err,tcm){
-        if(err){
+    if(id != 'undefined'){
+      Tcm.findById(id,function (err,tcm) {
+        if (err) {
           console.log(err);
         }
         _tcm= _.extend(tcm,tcmObj);
@@ -94,7 +94,7 @@ app.get('/admin/new', function (req,res) {
         });
       });
     }else{
-      _tcm=new tcm({
+      _tcm=new Tcm({
             author: tcmObj.author,
             title: tcmObj.title,
             year:tcmObj.year,
@@ -110,10 +110,11 @@ app.get('/admin/new', function (req,res) {
 });
 
   //逻辑控制：更新
-  app.get('/admin/control/update/:id',function(req,res){
-  var id=req.params.id;
+  app.get('/admin/control/update/:id',function(req, res){
+  var id =req.params.id;
+
     if(id){
-      tcm.findById(id,function(err,tcm){
+      Tcm.findById(id,function(err,tcm){
         res.render('new',{
           title:'后台更新页',
           tcm:tcm
@@ -126,7 +127,7 @@ app.get('/admin/new', function (req,res) {
   var id=req.query.id;
 
     if(id){
-      tcm.remove({_id:id},function(err,tcm){
+      Tcm.remove({_id:id},function(err,tcm){
         if(err) {
           console.log(err);
         }else{

@@ -3,7 +3,7 @@
  */
 var mongoose = require('mongoose');
 
-var tcmSchema = new mongoose.Schema({
+var tcmSchema = new mongoose.Schema({ //定义数据库模式
     author: String,
     title: String,
     year: String,
