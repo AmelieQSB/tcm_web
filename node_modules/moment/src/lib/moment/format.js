@@ -1,15 +1,15 @@
-import { formatMoment } from '../format/format';
-import { hooks } from '../utils/hooks';
+import {formatMoment} from '../format/format';
+import {hooks} from '../utils/hooks';
 import isFunction from '../utils/is-function';
 
 hooks.defaultFormat = 'YYYY-MM-DDTHH:mm:ssZ';
 hooks.defaultFormatUtc = 'YYYY-MM-DDTHH:mm:ss[Z]';
 
-export function toString () {
+export function toString() {
     return this.clone().locale('en').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
 }
 
-export function toISOString () {
+export function toISOString() {
     var m = this.clone().utc();
     if (0 < m.year() && m.year() <= 9999) {
         if (isFunction(Date.prototype.toISOString)) {
@@ -23,7 +23,7 @@ export function toISOString () {
     }
 }
 
-export function format (inputString) {
+export function format(inputString) {
     if (!inputString) {
         inputString = this.isUtc() ? hooks.defaultFormatUtc : hooks.defaultFormat;
     }

@@ -3,18 +3,21 @@
 //! author : petrbela : https://github.com/petrbela
 
 ;(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined'
-       && typeof require === 'function' ? factory(require('../moment')) :
-   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
-   factory(global.moment)
-}(this, function (moment) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined'
+    && typeof require === 'function' ? factory(require('../moment')) :
+        typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+            factory(global.moment)
+}(this, function (moment) {
+    'use strict';
 
 
     var months = 'leden_únor_březen_duben_květen_červen_červenec_srpen_září_říjen_listopad_prosinec'.split('_'),
         monthsShort = 'led_úno_bře_dub_kvě_čvn_čvc_srp_zář_říj_lis_pro'.split('_');
+
     function plural(n) {
         return (n > 1) && (n < 5) && (~~(n / 10) !== 1);
     }
+
     function translate(number, withoutSuffix, key, isFuture) {
         var result = number + ' ';
         switch (key) {
@@ -69,9 +72,9 @@
     }
 
     var cs = moment.defineLocale('cs', {
-        months : months,
-        monthsShort : monthsShort,
-        monthsParse : (function (months, monthsShort) {
+        months: months,
+        monthsShort: monthsShort,
+        monthsParse: (function (months, monthsShort) {
             var i, _monthsParse = [];
             for (i = 0; i < 12; i++) {
                 // use custom parser to solve problem with July (červenec)
@@ -79,33 +82,33 @@
             }
             return _monthsParse;
         }(months, monthsShort)),
-        shortMonthsParse : (function (monthsShort) {
+        shortMonthsParse: (function (monthsShort) {
             var i, _shortMonthsParse = [];
             for (i = 0; i < 12; i++) {
                 _shortMonthsParse[i] = new RegExp('^' + monthsShort[i] + '$', 'i');
             }
             return _shortMonthsParse;
         }(monthsShort)),
-        longMonthsParse : (function (months) {
+        longMonthsParse: (function (months) {
             var i, _longMonthsParse = [];
             for (i = 0; i < 12; i++) {
                 _longMonthsParse[i] = new RegExp('^' + months[i] + '$', 'i');
             }
             return _longMonthsParse;
         }(months)),
-        weekdays : 'neděle_pondělí_úterý_středa_čtvrtek_pátek_sobota'.split('_'),
-        weekdaysShort : 'ne_po_út_st_čt_pá_so'.split('_'),
-        weekdaysMin : 'ne_po_út_st_čt_pá_so'.split('_'),
-        longDateFormat : {
+        weekdays: 'neděle_pondělí_úterý_středa_čtvrtek_pátek_sobota'.split('_'),
+        weekdaysShort: 'ne_po_út_st_čt_pá_so'.split('_'),
+        weekdaysMin: 'ne_po_út_st_čt_pá_so'.split('_'),
+        longDateFormat: {
             LT: 'H:mm',
-            LTS : 'H:mm:ss',
-            L : 'DD.MM.YYYY',
-            LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY H:mm',
-            LLLL : 'dddd D. MMMM YYYY H:mm',
-            l : 'D. M. YYYY'
+            LTS: 'H:mm:ss',
+            L: 'DD.MM.YYYY',
+            LL: 'D. MMMM YYYY',
+            LLL: 'D. MMMM YYYY H:mm',
+            LLLL: 'dddd D. MMMM YYYY H:mm',
+            l: 'D. M. YYYY'
         },
-        calendar : {
+        calendar: {
             sameDay: '[dnes v] LT',
             nextDay: '[zítra v] LT',
             nextWeek: function () {
@@ -144,26 +147,26 @@
             },
             sameElse: 'L'
         },
-        relativeTime : {
-            future : 'za %s',
-            past : 'před %s',
-            s : translate,
-            m : translate,
-            mm : translate,
-            h : translate,
-            hh : translate,
-            d : translate,
-            dd : translate,
-            M : translate,
-            MM : translate,
-            y : translate,
-            yy : translate
+        relativeTime: {
+            future: 'za %s',
+            past: 'před %s',
+            s: translate,
+            m: translate,
+            mm: translate,
+            h: translate,
+            hh: translate,
+            d: translate,
+            dd: translate,
+            M: translate,
+            MM: translate,
+            y: translate,
+            yy: translate
         },
-        ordinalParse : /\d{1,2}\./,
-        ordinal : '%d.',
-        week : {
-            dow : 1, // Monday is the first day of the week.
-            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        ordinalParse: /\d{1,2}\./,
+        ordinal: '%d.',
+        week: {
+            dow: 1, // Monday is the first day of the week.
+            doy: 4  // The week that contains Jan 4th is the first week of the year.
         }
     });
 

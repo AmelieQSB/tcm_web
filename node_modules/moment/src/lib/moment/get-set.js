@@ -1,10 +1,10 @@
-import { normalizeUnits, normalizeObjectUnits } from '../units/aliases';
-import { getPrioritizedUnits } from '../units/priorities';
-import { hooks } from '../utils/hooks';
+import {normalizeUnits, normalizeObjectUnits} from '../units/aliases';
+import {getPrioritizedUnits} from '../units/priorities';
+import {hooks} from '../utils/hooks';
 import isFunction from '../utils/is-function';
 
 
-export function makeGetSet (unit, keepTime) {
+export function makeGetSet(unit, keepTime) {
     return function (value) {
         if (value != null) {
             set(this, unit, value);
@@ -16,12 +16,12 @@ export function makeGetSet (unit, keepTime) {
     };
 }
 
-export function get (mom, unit) {
+export function get(mom, unit) {
     return mom.isValid() ?
         mom._d['get' + (mom._isUTC ? 'UTC' : '') + unit]() : NaN;
 }
 
-export function set (mom, unit, value) {
+export function set(mom, unit, value) {
     if (mom.isValid()) {
         mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
     }
@@ -29,7 +29,7 @@ export function set (mom, unit, value) {
 
 // MOMENTS
 
-export function stringGet (units) {
+export function stringGet(units) {
     units = normalizeUnits(units);
     if (isFunction(this[units])) {
         return this[units]();
@@ -38,7 +38,7 @@ export function stringGet (units) {
 }
 
 
-export function stringSet (units, value) {
+export function stringSet(units, value) {
     if (typeof units === 'object') {
         units = normalizeObjectUnits(units);
         var prioritized = getPrioritizedUnits(units);

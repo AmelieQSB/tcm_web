@@ -1,5 +1,5 @@
-define( function() {
+define(function () {
 
-	// Match a standalone tag
-	return ( /^<([\w-]+)\s*\/?>(?:<\/\1>|)$/ );
-} );
+    // Match a standalone tag
+    return ( /^<([\w-]+)\s*\/?>(?:<\/\1>|)$/ );
+});

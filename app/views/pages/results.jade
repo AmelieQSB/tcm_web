@@ -1,0 +1,30 @@
+//
+   Created by Mesogene on 7/27/16.
+extends ../includes/layout
+block content
+    .container
+        .row
+            .panel.panel-default
+                .panel-heading
+                    h3 #{keyword}
+                .panel-body
+                    if tcms && tcms.length > 0
+                        each item in tcms
+                            .col-md-2
+                                .thumbnail
+                                    a(href="/tcm/#{item._id}")
+                                        img(src="#{item.poster}", alt="#{item.title}")
+                                    .caption
+                                        h4 #{item.title}
+                                        p: a.btn.btn-primary(href="/tcm/#{item._id}", role="button") 查看文章详情
+            ul.pagination
+                - for (var i = 0; i < totalPage; i++) {
+                - if (currentPage == (i + 1)) {  //判断正在展示的这一页是不是当前页
+                li.active
+                    span #{currentPage}
+                - }
+                - else {  //不是当前页，跳转掉
+                li
+                    a(href='/results?#{query}&p=#{i}') #{i + 1}
+                - }
+                - }

@@ -4,18 +4,21 @@
 //! based on work of petrbela : https://github.com/petrbela
 
 ;(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined'
-       && typeof require === 'function' ? factory(require('../moment')) :
-   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
-   factory(global.moment)
-}(this, function (moment) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined'
+    && typeof require === 'function' ? factory(require('../moment')) :
+        typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+            factory(global.moment)
+}(this, function (moment) {
+    'use strict';
 
 
     var months = 'január_február_marec_apríl_máj_jún_júl_august_september_október_november_december'.split('_'),
         monthsShort = 'jan_feb_mar_apr_máj_jún_júl_aug_sep_okt_nov_dec'.split('_');
+
     function plural(n) {
         return (n > 1) && (n < 5);
     }
+
     function translate(number, withoutSuffix, key, isFuture) {
         var result = number + ' ';
         switch (key) {
@@ -70,20 +73,20 @@
     }
 
     var sk = moment.defineLocale('sk', {
-        months : months,
-        monthsShort : monthsShort,
-        weekdays : 'nedeľa_pondelok_utorok_streda_štvrtok_piatok_sobota'.split('_'),
-        weekdaysShort : 'ne_po_ut_st_št_pi_so'.split('_'),
-        weekdaysMin : 'ne_po_ut_st_št_pi_so'.split('_'),
-        longDateFormat : {
+        months: months,
+        monthsShort: monthsShort,
+        weekdays: 'nedeľa_pondelok_utorok_streda_štvrtok_piatok_sobota'.split('_'),
+        weekdaysShort: 'ne_po_ut_st_št_pi_so'.split('_'),
+        weekdaysMin: 'ne_po_ut_st_št_pi_so'.split('_'),
+        longDateFormat: {
             LT: 'H:mm',
-            LTS : 'H:mm:ss',
-            L : 'DD.MM.YYYY',
-            LL : 'D. MMMM YYYY',
-            LLL : 'D. MMMM YYYY H:mm',
-            LLLL : 'dddd D. MMMM YYYY H:mm'
+            LTS: 'H:mm:ss',
+            L: 'DD.MM.YYYY',
+            LL: 'D. MMMM YYYY',
+            LLL: 'D. MMMM YYYY H:mm',
+            LLLL: 'dddd D. MMMM YYYY H:mm'
         },
-        calendar : {
+        calendar: {
             sameDay: '[dnes o] LT',
             nextDay: '[zajtra o] LT',
             nextWeek: function () {
@@ -122,26 +125,26 @@
             },
             sameElse: 'L'
         },
-        relativeTime : {
-            future : 'za %s',
-            past : 'pred %s',
-            s : translate,
-            m : translate,
-            mm : translate,
-            h : translate,
-            hh : translate,
-            d : translate,
-            dd : translate,
-            M : translate,
-            MM : translate,
-            y : translate,
-            yy : translate
+        relativeTime: {
+            future: 'za %s',
+            past: 'pred %s',
+            s: translate,
+            m: translate,
+            mm: translate,
+            h: translate,
+            hh: translate,
+            d: translate,
+            dd: translate,
+            M: translate,
+            MM: translate,
+            y: translate,
+            yy: translate
         },
         ordinalParse: /\d{1,2}\./,
-        ordinal : '%d.',
-        week : {
-            dow : 1, // Monday is the first day of the week.
-            doy : 4  // The week that contains Jan 4th is the first week of the year.
+        ordinal: '%d.',
+        week: {
+            dow: 1, // Monday is the first day of the week.
+            doy: 4  // The week that contains Jan 4th is the first week of the year.
         }
     });
 

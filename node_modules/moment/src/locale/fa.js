@@ -29,53 +29,53 @@ var symbolMap = {
 };
 
 export default moment.defineLocale('fa', {
-    months : 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split('_'),
-    monthsShort : 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split('_'),
-    weekdays : 'یک\u200cشنبه_دوشنبه_سه\u200cشنبه_چهارشنبه_پنج\u200cشنبه_جمعه_شنبه'.split('_'),
-    weekdaysShort : 'یک\u200cشنبه_دوشنبه_سه\u200cشنبه_چهارشنبه_پنج\u200cشنبه_جمعه_شنبه'.split('_'),
-    weekdaysMin : 'ی_د_س_چ_پ_ج_ش'.split('_'),
-    weekdaysParseExact : true,
-    longDateFormat : {
-        LT : 'HH:mm',
-        LTS : 'HH:mm:ss',
-        L : 'DD/MM/YYYY',
-        LL : 'D MMMM YYYY',
-        LLL : 'D MMMM YYYY HH:mm',
-        LLLL : 'dddd, D MMMM YYYY HH:mm'
+    months: 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split('_'),
+    monthsShort: 'ژانویه_فوریه_مارس_آوریل_مه_ژوئن_ژوئیه_اوت_سپتامبر_اکتبر_نوامبر_دسامبر'.split('_'),
+    weekdays: 'یک\u200cشنبه_دوشنبه_سه\u200cشنبه_چهارشنبه_پنج\u200cشنبه_جمعه_شنبه'.split('_'),
+    weekdaysShort: 'یک\u200cشنبه_دوشنبه_سه\u200cشنبه_چهارشنبه_پنج\u200cشنبه_جمعه_شنبه'.split('_'),
+    weekdaysMin: 'ی_د_س_چ_پ_ج_ش'.split('_'),
+    weekdaysParseExact: true,
+    longDateFormat: {
+        LT: 'HH:mm',
+        LTS: 'HH:mm:ss',
+        L: 'DD/MM/YYYY',
+        LL: 'D MMMM YYYY',
+        LLL: 'D MMMM YYYY HH:mm',
+        LLLL: 'dddd, D MMMM YYYY HH:mm'
     },
     meridiemParse: /قبل از ظهر|بعد از ظهر/,
     isPM: function (input) {
         return /بعد از ظهر/.test(input);
     },
-    meridiem : function (hour, minute, isLower) {
+    meridiem: function (hour, minute, isLower) {
         if (hour < 12) {
             return 'قبل از ظهر';
         } else {
             return 'بعد از ظهر';
         }
     },
-    calendar : {
-        sameDay : '[امروز ساعت] LT',
-        nextDay : '[فردا ساعت] LT',
-        nextWeek : 'dddd [ساعت] LT',
-        lastDay : '[دیروز ساعت] LT',
-        lastWeek : 'dddd [پیش] [ساعت] LT',
-        sameElse : 'L'
+    calendar: {
+        sameDay: '[امروز ساعت] LT',
+        nextDay: '[فردا ساعت] LT',
+        nextWeek: 'dddd [ساعت] LT',
+        lastDay: '[دیروز ساعت] LT',
+        lastWeek: 'dddd [پیش] [ساعت] LT',
+        sameElse: 'L'
     },
-    relativeTime : {
-        future : 'در %s',
-        past : '%s پیش',
-        s : 'چندین ثانیه',
-        m : 'یک دقیقه',
-        mm : '%d دقیقه',
-        h : 'یک ساعت',
-        hh : '%d ساعت',
-        d : 'یک روز',
-        dd : '%d روز',
-        M : 'یک ماه',
-        MM : '%d ماه',
-        y : 'یک سال',
-        yy : '%d سال'
+    relativeTime: {
+        future: 'در %s',
+        past: '%s پیش',
+        s: 'چندین ثانیه',
+        m: 'یک دقیقه',
+        mm: '%d دقیقه',
+        h: 'یک ساعت',
+        hh: '%d ساعت',
+        d: 'یک روز',
+        dd: '%d روز',
+        M: 'یک ماه',
+        MM: '%d ماه',
+        y: 'یک سال',
+        yy: '%d سال'
     },
     preparse: function (string) {
         return string.replace(/[۰-۹]/g, function (match) {
@@ -88,10 +88,10 @@ export default moment.defineLocale('fa', {
         }).replace(/,/g, '،');
     },
     ordinalParse: /\d{1,2}م/,
-    ordinal : '%dم',
-    week : {
-        dow : 6, // Saturday is the first day of the week.
-        doy : 12 // The week that contains Jan 1st is the first week of the year.
+    ordinal: '%dم',
+    week: {
+        dow: 6, // Saturday is the first day of the week.
+        doy: 12 // The week that contains Jan 1st is the first week of the year.
     }
 });
 

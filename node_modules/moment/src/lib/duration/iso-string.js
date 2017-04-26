@@ -10,18 +10,18 @@ export function toISOString() {
     // (think of clock changes)
     // and also not between days and months (28-31 days per month)
     var seconds = abs(this._milliseconds) / 1000;
-    var days         = abs(this._days);
-    var months       = abs(this._months);
+    var days = abs(this._days);
+    var months = abs(this._months);
     var minutes, hours, years;
 
     // 3600 seconds -> 60 minutes -> 1 hour
-    minutes           = absFloor(seconds / 60);
-    hours             = absFloor(minutes / 60);
+    minutes = absFloor(seconds / 60);
+    hours = absFloor(minutes / 60);
     seconds %= 60;
     minutes %= 60;
 
     // 12 months -> 1 year
-    years  = absFloor(months / 12);
+    years = absFloor(months / 12);
     months %= 12;
 
 

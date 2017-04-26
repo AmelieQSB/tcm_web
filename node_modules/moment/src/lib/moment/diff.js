@@ -1,8 +1,8 @@
 import absFloor from '../utils/abs-floor';
-import { cloneWithOffset } from '../units/offset';
-import { normalizeUnits } from '../units/aliases';
+import {cloneWithOffset} from '../units/offset';
+import {normalizeUnits} from '../units/aliases';
 
-export function diff (input, units, asFloat) {
+export function diff(input, units, asFloat) {
     var that,
         zoneDelta,
         delta, output;
@@ -32,15 +32,15 @@ export function diff (input, units, asFloat) {
         delta = this - that;
         output = units === 'second' ? delta / 1e3 : // 1000
             units === 'minute' ? delta / 6e4 : // 1000 * 60
-            units === 'hour' ? delta / 36e5 : // 1000 * 60 * 60
-            units === 'day' ? (delta - zoneDelta) / 864e5 : // 1000 * 60 * 60 * 24, negate dst
-            units === 'week' ? (delta - zoneDelta) / 6048e5 : // 1000 * 60 * 60 * 24 * 7, negate dst
-            delta;
+                units === 'hour' ? delta / 36e5 : // 1000 * 60 * 60
+                    units === 'day' ? (delta - zoneDelta) / 864e5 : // 1000 * 60 * 60 * 24, negate dst
+                        units === 'week' ? (delta - zoneDelta) / 6048e5 : // 1000 * 60 * 60 * 24 * 7, negate dst
+                            delta;
     }
     return asFloat ? output : absFloor(output);
 }
 
-function monthDiff (a, b) {
+function monthDiff(a, b) {
     // difference in months
     var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.month() - a.month()),
         // b is in (anchor - 1 month, anchor + 1 month)

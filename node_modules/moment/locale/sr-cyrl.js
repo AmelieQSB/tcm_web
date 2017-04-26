@@ -3,11 +3,12 @@
 //! author : Milan Janačković<milanjanackovic@gmail.com> : https://github.com/milan-j
 
 ;(function (global, factory) {
-   typeof exports === 'object' && typeof module !== 'undefined'
-       && typeof require === 'function' ? factory(require('../moment')) :
-   typeof define === 'function' && define.amd ? define(['../moment'], factory) :
-   factory(global.moment)
-}(this, function (moment) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined'
+    && typeof require === 'function' ? factory(require('../moment')) :
+        typeof define === 'function' && define.amd ? define(['../moment'], factory) :
+            factory(global.moment)
+}(this, function (moment) {
+    'use strict';
 
 
     var translator = {
@@ -40,10 +41,10 @@
         weekdays: 'недеља_понедељак_уторак_среда_четвртак_петак_субота'.split('_'),
         weekdaysShort: 'нед._пон._уто._сре._чет._пет._суб.'.split('_'),
         weekdaysMin: 'не_по_ут_ср_че_пе_су'.split('_'),
-        weekdaysParseExact : true,
+        weekdaysParseExact: true,
         longDateFormat: {
             LT: 'H:mm',
-            LTS : 'H:mm:ss',
+            LTS: 'H:mm:ss',
             L: 'DD. MM. YYYY',
             LL: 'D. MMMM YYYY',
             LLL: 'D. MMMM YYYY H:mm',
@@ -67,8 +68,8 @@
                         return '[у] dddd [у] LT';
                 }
             },
-            lastDay  : '[јуче у] LT',
-            lastWeek : function () {
+            lastDay: '[јуче у] LT',
+            lastWeek: function () {
                 var lastWeekDays = [
                     '[прошле] [недеље] [у] LT',
                     '[прошлог] [понедељка] [у] LT',
@@ -80,28 +81,28 @@
                 ];
                 return lastWeekDays[this.day()];
             },
-            sameElse : 'L'
+            sameElse: 'L'
         },
-        relativeTime : {
-            future : 'за %s',
-            past   : 'пре %s',
-            s      : 'неколико секунди',
-            m      : translator.translate,
-            mm     : translator.translate,
-            h      : translator.translate,
-            hh     : translator.translate,
-            d      : 'дан',
-            dd     : translator.translate,
-            M      : 'месец',
-            MM     : translator.translate,
-            y      : 'годину',
-            yy     : translator.translate
+        relativeTime: {
+            future: 'за %s',
+            past: 'пре %s',
+            s: 'неколико секунди',
+            m: translator.translate,
+            mm: translator.translate,
+            h: translator.translate,
+            hh: translator.translate,
+            d: 'дан',
+            dd: translator.translate,
+            M: 'месец',
+            MM: translator.translate,
+            y: 'годину',
+            yy: translator.translate
         },
         ordinalParse: /\d{1,2}\./,
-        ordinal : '%d.',
-        week : {
-            dow : 1, // Monday is the first day of the week.
-            doy : 7  // The week that contains Jan 1st is the first week of the year.
+        ordinal: '%d.',
+        week: {
+            dow: 1, // Monday is the first day of the week.
+            doy: 7  // The week that contains Jan 1st is the first week of the year.
         }
     });
 

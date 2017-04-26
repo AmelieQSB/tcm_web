@@ -6,20 +6,35 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "body-parser": "~1.15.1",
-    "cookie-parser": "~1.4.3",
+    "ccap": "^0.6.10",
+    "connect": "^3.4.1",
+    "connect-mongo": "0.4.1",
+    "connect-multiparty": "^2.0.0",
+    "content-type": "^1.0.2",
+    "cookie-parser": "^1.4.3",
     "debug": "~2.2.0",
-    "express": "~4.13.4",
+    "express": "~3.0.0",
+    "express-session": "^1.14.0",
     "jade": "~1.11.0",
+    "moment": "^2.14.1",
+    "mongodb": "^2.2.5",
+    "mongoose": "^4.5.9",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "multipart": "^0.1.5",
+    "serve-favicon": "~2.3.0",
+    "should": "^11.1.0",
+    "underscore": "^1.8.3"
   },
   "description": "tcm",
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt-concurrent": "^2.3.0"
+  },
   "keywords": [
     "tcm"
   ],
   "author": "qi",
-  "license": "ISC"
+  "license": "BSD-3-Clause"
 }

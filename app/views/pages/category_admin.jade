@@ -1,0 +1,14 @@
+//
+   Created by Mesogene on 7/27/16.
+extends ../includes/layout
+block content
+    .container
+        .row
+            form.form-horizontal(method="post",action="/admin/category/new")
+                .form-group
+                    label.col-sm-2.control-label(for="inputCategory") 文章分类
+                    .col-sm-6
+                        input#inputCategory.form-control(type="text",name="category[name]",value=category.name)
+                .form-group
+                    .col-sm-offset-2.col-sm-6
+                        button.btn.btn-default(typa="submit") 录入
